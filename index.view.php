@@ -16,14 +16,12 @@
 <ul>
     <?php foreach ($lista1 as $item) : ?>
         <?php $link1="document.php?file=".$item;
-              //$link2="../edit.php?file=".$item;
-        $link2="edit.php?file=".$item;
-        $link3="del.php?file=".$item;
+
+
 
         ?>
-        <li><a href="<?= $link1;?>"  ><?= $item; ?></a>
-	        <a href="<?= $link2;?>" > Edit</a>
-	        <a href="<?= $link3;?>" > Delete</a>
+        <li><a href="<?= $link1;?>" target="_blank"> <?= $item; ?></a>
+
         </li>
 
     <?php endforeach;?>
