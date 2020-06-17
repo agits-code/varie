@@ -1,6 +1,6 @@
 <?php
-
 require "../general.php";
 
 require "element.php";
-require "../edit.view.php";
+
+$archivio1->del($file);

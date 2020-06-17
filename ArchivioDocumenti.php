@@ -12,7 +12,7 @@ class ArchivioDocumenti {
         } else {echo "file già esiste";}
     }
     public function del($nome_file){
-        $nome = $this->percorso.$nome_file;
+        $nome = "../".$this->percorso.$nome_file;
         if (! file_exists($nome)) {
             printf("Impossibile eliminare il file %s", $nome_file);
         } else {

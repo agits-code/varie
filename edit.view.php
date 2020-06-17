@@ -10,24 +10,19 @@
 <body>
 
 
-<h1>modifica</h1>
-<h3> File : <?=$file;?> </h3>
-<h3> Contenuto :  </h3>
 
-<div><?= $cont;?></div>
+<h3> Modifica file : <?= $file;?></h3>
+
+
 
 
 <form action="update.php">
 
-    <!--<input type="text" id="file" name="fname"><br><br>  -->
-    <label for="file">nome file:</label>
-
-    <input type="text" id="file" name="fname" value=<?= $file;?>><br><br>
-    <label for="content">nuovo contenuto file:</label>
-    <textarea cols="33" id="content"
-              name="content" rows="5">
-<?= $cont;?>
-</textarea><br><br>
+	<input type="hidden" id="file" name="file" value=<?= $file;?>><br><br>
+	<label for="content"><h3>nuovo contenuto file:</h3></label>
+    <textarea cols="10" id="content" name="content" rows="5">
+                       <?= $cont;?>
+    </textarea><br><br>
     <input type="submit" value="Submit">
 </form>
 
