@@ -1,47 +1,63 @@
 <?php
 class ArchivioDocumenti {
-    //private $percorso = "../../MioArchivio/";
+
     public function __construct ($nome_archivio){
 
-        $this->percorso = "../". $nome_archivio . "/";
+        try {
+            $this->pdo = new PDO(
+                'mysql:host=127.0.0.1;dbname=MioArchivio', 'root', 'lampolampo'
+            );
+            } catch (PDOException $e){
+            die("qualcosa non ha funzionato");
+            }
+        $this->nome_archivio = $nome_archivio;
+
+
     }
     public  function add($nome_file,$contenuto){
-        $nome="../".$this->percorso.$nome_file;
-        if (!file_exists($nome)) {
-            file_put_contents($nome,$contenuto);
-        } else {echo "file già esiste";}
+
+
+       $sql = "INSERT INTO $this->nome_archivio (file_name, file_content) VALUES (:file_name, :file_content)";
+        try {
+            $statement = $this->pdo->prepare($sql);
+
+            $statement->execute(['file_name' => $nome_file, 'file_content' => $contenuto]);
+            } catch (Exception $e){
+               die('qualcosa non funziona ....');
+            }
+
     }
     public function del($nome_file){
-        $nome = "../".$this->percorso.$nome_file;
-        if (! file_exists($nome)) {
-            printf("Impossibile eliminare il file %s", $nome_file);
-        } else {
-            unlink($nome);
+
+        $sql = "DELETE FROM new_arch WHERE file_name ='$nome_file'";
+        try {
+            $statement=$this->pdo->prepare($sql);
+            $statement->execute();
+        } catch (Exception $e){
+            die('qualcosa non funziona ....');
         }
     }
     public function edit($nome_file,$new_contenuto){
-        $nome="../".$this->percorso.$nome_file;
-        if (file_exists($nome)) {
-            file_put_contents($nome,$new_contenuto);
-        } else {echo "file non esiste";}
+        $sql = "UPDATE new_arch SET file_content = '$new_contenuto'
+                  WHERE file_name = '$nome_file'";
+        try {
+         $statement=$this->pdo->prepare($sql);
+         $statement->execute();
+            } catch (Exception $e){
+               die('qualcosa non funziona ....');
+            }
     }
     public function get($key){
-        $nome="../".$this->percorso.$key;
-        if (file_exists($nome)){
-
-            return file_get_contents($nome);
-        }
+        $this->statment=$this->pdo->prepare("select file_content from $this->nome_archivio where file_name='$key'");
+        $this->statment->execute();
+        $cont= $this->statment->fetchAll(PDO::FETCH_COLUMN);
+        return $cont[0];
     }
     public  function lista(){
-        $handler= opendir("../".$this->percorso);
-        if (false !== $handler ){
-            while ($file = readdir($handler)) {
-                if ($file !== "." && $file !=="..") {
-                    $lista[] = $file;
-                }
-            }
-        }
-        closedir($handler);
-        return $lista;
+
+        $this->statment=$this->pdo->prepare("select file_name from $this->nome_archivio");
+        $this->statment->execute();
+        return $this->statment->fetchAll(PDO::FETCH_COLUMN);
+
     }
 }
