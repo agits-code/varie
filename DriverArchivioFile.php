@@ -1,17 +1,17 @@
 <?php
-class DriverArchivioFile {
+class DriverArchivioFile implements DriverArchivio {
     //private $percorso = "../../MioArchivio/";
     public function __construct ($nome_archivio){
 
         $this->percorso = "../". $nome_archivio . "/";
     }
-    public  function add($nome_file,$contenuto){
+    public  function insert($nome_file,$contenuto){
         $nome="../".$this->percorso.$nome_file;
         if (!file_exists($nome)) {
             file_put_contents($nome,$contenuto);
         } else {echo "file già esiste";}
     }
-    public function del($nome_file){
+    public function delete($nome_file){
         $nome = "../".$this->percorso.$nome_file;
         if (! file_exists($nome)) {
             printf("Impossibile eliminare il file %s", $nome_file);
@@ -19,7 +19,7 @@ class DriverArchivioFile {
             unlink($nome);
         }
     }
-    public function edit($nome_file,$new_contenuto){
+    public function update($nome_file,$new_contenuto){
         $nome="../".$this->percorso.$nome_file;
         if (file_exists($nome)) {
             file_put_contents($nome,$new_contenuto);
