@@ -10,7 +10,7 @@
 
 
 <h1>mio archivio1</h1>
-<h4><a href="../aggiungi.php" target="_blank"> aggiungi file </a></h4>
+<h4><a href="../aggiungi.php" > aggiungi file </a></h4>
 <h3>lista documenti</h3>
 
 <ul>
@@ -20,7 +20,7 @@
 
 
         ?>
-        <li><a href="<?= $link1;?>" target="_blank"> <?= $item; ?></a>
+        <li><a href="<?= $link1;?>" > <?= $item; ?></a>
 
         </li>
 

@@ -5,9 +5,9 @@ class Archivio
 {
     protected $driver ;
 
-    public function __construct($nome_arch)
+    public function __construct($driver)
     {
-        $this->driver = new DriverArchivioMysql($nome_arch);
+        $this->driver = $driver;
 
     }
 
@@ -34,4 +34,5 @@ class Archivio
      return $this->driver->lista();
 
     }
+
 }
