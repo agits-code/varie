@@ -1,7 +1,5 @@
 <?php
-//$config= require "admin/config.php";
-//$config=$config['database'];
-//var_dump($config);
+
 require "DB.php";
 require "DriverArchivio.php";
 require "Archivio.php";

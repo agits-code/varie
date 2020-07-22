@@ -12,10 +12,11 @@
 <?php
 $link2="edit.php?file=".$file;
 $link3="delete.php?file=".$file;
+$link4="../admin/index.php";
 ?>
 <a href="<?= $link2;?>" > edit</a>
 <a href="<?= $link3;?>" > delete</a>
-
+<a href="<?= $link4;?>" > list</a>
 <h3> Contenuto :  </h3>
 
 <div><?= $cont;?></div>

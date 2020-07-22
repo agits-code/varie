@@ -2,9 +2,9 @@
 class DB
 {
     protected $pdo;
-    protected function connect(){
 
-        if (!isset($this->pdo)) {
+    protected function connect(){
+        if (!$this->pdo) {
             $config= require "config.php";
             $config=$config['database'];
             try {
@@ -15,10 +15,10 @@ class DB
                     $config['options']
                 );
                 $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+                $this->pdo = $pdo;
             } catch (PDOException $e) {
-                die("qualcosa non ha funzionato");
+                die("non connesso al db");
             }
-            $this->pdo = $pdo;
         }
     }
 
@@ -28,11 +28,17 @@ class DB
         try {
             $statement = $this->pdo->prepare($sql);
             $statement->execute();
+            return $statement;
         } catch (Exception $e) {
             echo $e->getMessage();
-            die('qualcosa non funziona ....');
+            die('query non funziona ....');
         }
-        return $statement;
+
+    }
+    public function query_one ($key,$nome_archivio){
+        $sql= "SELECT * FROM $nome_archivio WHERE file_name='$key'";
+        $cont = $this->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+        return $cont[0];
     }
 
     public function query_all($nome_archivio)
