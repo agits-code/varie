@@ -44,8 +44,8 @@ class DriverArchivioMysql implements DriverArchivio {
 
             $sql = "UPDATE new_arch SET file_content = '$new_contenuto' WHERE file_name = '$nome_file' AND nome_archivio='$this->nome_archivio'";
             $this->DB->query($sql);
+            return "file aggiornato correttamente";
 
-            echo "file aggiornato correttamente";
 
 
     }

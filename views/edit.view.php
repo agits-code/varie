@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Documenti Archivio</title>
-
+	<link href="../public/style.css.php" rel="stylesheet" type="text/css">
 
 </head>
 

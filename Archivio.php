@@ -8,10 +8,7 @@ class Archivio
     public function __construct(DriverArchivio $driver)
     {
         // TODO: controllare $driver--> nome classe!!!!
-
-            $this->driver = $driver;
-
-
+        $this->driver = $driver;
     }
 
 
@@ -19,7 +16,10 @@ class Archivio
     {
         // TODO: controllare che esista, o meglio che NON esista.
         if (!$this->exists($nome_file)) {
-            return $this->driver->insert($nome_file, $contenuto);
+             $this->driver->insert($nome_file, $contenuto);
+             return "file inserito correttamente";
+        } else {
+            return "file esiste già";
         }
     }
     public function del($nome_file)
@@ -27,6 +27,9 @@ class Archivio
         // TODO controllare che ESISTA
         if ($this->exists($nome_file)) {
             $this->driver->delete($nome_file);
+            return "file cancellato";
+        } else {
+            return "file non trovato";
         }
     }
     public function edit($nome_file,$new_contenuto)

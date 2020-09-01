@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Documenti Archivio</title>
-
+	<link href="../public/style.css.php" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -11,7 +11,7 @@
 
 <h1>mio archivio1</h1>
 <h4><a href="../aggiungi.php" > aggiungi file </a></h4>
-<h3>lista documenti</h3>
+<h3>lista documenti :</h3>
 
 <ul>
     <?php foreach ($lista1 as $item) : ?>

@@ -3,7 +3,7 @@ class DriverArchivioFile implements DriverArchivio {
     //private $percorso = "../../MioArchivio/";
     public function __construct ($nome_archivio){
 
-        $this->percorso = "../". $nome_archivio . "/";
+        $this->percorso = "../MioArchivio/". $nome_archivio . "/";
     }
     public  function insert($nome_file,$contenuto){
         $nome="../".$this->percorso.$nome_file;

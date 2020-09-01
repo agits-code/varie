@@ -5,4 +5,4 @@ $lista1=$archivio1->lista();
 
 
 
-require "../index.view.php";
+require "../views/index.view.php";

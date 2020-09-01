@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Documenti Archivio</title>
-
+	<link href="../public/style.css.php" rel="stylesheet" type="text/css">
 
 </head>
 
@@ -11,7 +11,7 @@
 
 
 
-<h3> UPDATE file : <?= $file;?></h3>
+<h3><?= $file." : ".$ok;?></h3>
 
 <?php
 
@@ -27,4 +27,5 @@ $link4="../admin/index.php";
 
 </body>
 </html>
+
 

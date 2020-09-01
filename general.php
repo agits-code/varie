@@ -7,5 +7,5 @@ require "DriverArchivioFile.php";
 require "DriverArchivioMysql.php";
 
 $driver = new DriverArchivioMysql("agits");//mysql
-//$driver = new DriverArchivioFile("MioArchivio");//file
+//$driver = new DriverArchivioFile("agits");//file
 $archivio1 = new Archivio($driver);
