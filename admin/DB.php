@@ -3,10 +3,11 @@ class DB
 {
     protected $pdo;
 
+
     protected function connect(){
         if (!$this->pdo) {
-            $config= require "config.php";
-            $config=$config['database'];
+            $conf= require "config.php";
+            $config=$conf['database'];
             try {
                 $pdo = new PDO(
                     $config['connection'].';dbname='.$config['name'],
@@ -22,6 +23,7 @@ class DB
         }
     }
 
+
     public function query($sql)
     {
         $this->connect();
@@ -35,15 +37,14 @@ class DB
         }
 
     }
-    public function query_one ($key,$nome_archivio){
-        $sql= "SELECT * FROM $nome_archivio WHERE file_name='$key'";
-        $cont = $this->query($sql)->fetchAll(PDO::FETCH_ASSOC);
-        return $cont[0];
-    }
 
-    public function query_all($nome_archivio)
+
+
+    public function query_all($sql)
     {
-        $sql = "SELECT file_name FROM $nome_archivio";
+
+        // TODO: Parametro $query.
+        //$sql = "SELECT file_name FROM $nome_archivio ORDER BY timestamp DESC ";
         return $this->query($sql)->fetchAll(PDO::FETCH_COLUMN);
     }
 }

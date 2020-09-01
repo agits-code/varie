@@ -8,7 +8,7 @@ return [
         'options' => [
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
                      ]
-    ],
-    'nome_archivio' => 'new_arch',
-    'file_path' => '../"MioArchivio"/'
+                  ],
+    'table' => 'new_arch',
+    'file_patch'=> '../../MioArchivio/'
 ];
