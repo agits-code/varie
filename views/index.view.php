@@ -10,7 +10,7 @@
 
 
 <h1>mio archivio1</h1>
-<h4><a href="../aggiungi.php" > aggiungi file </a></h4>
+<h4><a href="../admin/aggiungi.php" > aggiungi file </a></h4>
 <h3>lista documenti :</h3>
 
 <ul>

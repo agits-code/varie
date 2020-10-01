@@ -73,12 +73,15 @@ class DriverArchivioMysql implements DriverArchivio {
 
     public function exists($nome_file)
     {
-
         // TODO:
         // qui va scritta la query manualmente e passata a query_one.
-        $sql= "SELECT * FROM new_arch WHERE file_name='$nome_file' AND nome_archivio='$this->nome_archivio'";
+        $sql= "SELECT * 
+               FROM new_arch
+               WHERE file_name='$nome_file' 
+               AND nome_archivio='$this->nome_archivio'";
+
         $var= $this->DB->query($sql)->fetchAll();
-        //var_dump($var);
+        //var_dump($var);exit;
         if ($var){
             return true;
 

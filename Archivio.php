@@ -56,7 +56,8 @@ class Archivio
         return $this->driver->lista();
 
     }
-    public function exists ($file){
+    public function exists ($file) {
+
         return $this->driver->exists($file);
     }
 

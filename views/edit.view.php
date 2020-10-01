@@ -20,9 +20,11 @@
 
 	<input type="hidden" id="file" name="file" value=<?= $file;?>><br><br>
 	<label for="content"><h3>nuovo contenuto file:</h3></label>
-    <textarea cols="10" id="content" name="content" rows="5">
-                       <?= $cont['file_content'];?>
-    </textarea><br><br>
+
+
+	<textarea cols="10" id="content" name="content" rows="5"><?= $cont['file_content'];?></textarea>
+
+	<br><br>
     <input type="submit" value="Submit">
 </form>
 

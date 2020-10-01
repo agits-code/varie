@@ -11,7 +11,7 @@
 
 <h1>aggiungi</h1>
 
-<form action="admin/add.php">
+<form action="add.php">
     <label for="file">nome file:</label>
     <input type="text" id="file" name="file"><br><br>
     <label for="content">contenuto file:</label>
